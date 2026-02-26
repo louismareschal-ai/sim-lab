@@ -1,0 +1,39 @@
+=== Snapshot Training ===
+Target generations: 800
+Checkpoints: [200, 400, 800]
+Food coverage init: 100.0%
+Spawn mode: random
+Food respawn: mode=random, interval=10 steps, batch=20%, cycle=30 steps
+Interference: mode=off, blocker_ttl=4, blocker_cost=0.25
+Steps ramp: 120 -> 120 over 1 generations
+Stall window: 300 gens (stop if best fitness flat for this long)
+Log interval: every 100 generations
+AI technique: genetic algorithm with 20-weight linear policy per creature
+
+Train G0001 | best=198.73 | avg=101.19 | best food=42 | level=1 | steps=120 | status=warming-up
+Train G0100 | best=219.73 | avg=144.05 | best food=54 | level=1 | steps=120 | status=stalled
+Saved checkpoint G0200 | best=214.48 | avg=143.57 | level=1 | progress=228.06
+Train G0200 | best=214.48 | avg=143.57 | best food=51 | level=1 | steps=120 | status=stalled
+Train G0300 | best=216.23 | avg=144.99 | best food=52 | level=1 | steps=120 | status=stalled
+
+Best fitness unchanged for 300 generations (last improved at G0016, value=273.98). Stopping.
+
+============================================================
+STALL DETECTED — Training analysis
+============================================================
+  Best fitness ever reached : 273.98
+  Current best fitness      : 214.48
+  Avg fitness (last gen)    : 150.59
+  Total avg improvement     : +49.40 over 316 gens
+  Curriculum level          : 1 (1=basic, 2=obstacles, 3=battles)
+  Survival score share      : ~100.0%
+
+AI technique: genetic algorithm (GA) with linear policy genes.
+  Each creature has 20 weights mapping (food direction, wall pos) -> move direction.
+  No neural network layers or backpropagation — pure evolutionary search.
+
+  Diagnosis: fitness plateaued at a local optimum.
+  Fix: try more generations, stronger mutation, or a larger population.
+============================================================
+
+Saved snapshot file: models/sweep_easy.json (1 checkpoints)

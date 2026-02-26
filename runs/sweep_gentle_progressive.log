@@ -1,0 +1,27 @@
+=== Snapshot Training ===
+Target generations: 800
+Checkpoints: [200, 400, 800]
+Food coverage init: 60.0%
+Spawn mode: biased-corners
+Food respawn: mode=random, interval=12 steps, batch=22%, cycle=30 steps
+Interference: mode=off, blocker_ttl=4, blocker_cost=0.25
+Steps ramp: 120 -> 220 over 700 generations
+Stall window: 300 gens (stop if best fitness flat for this long)
+Log interval: every 100 generations
+AI technique: genetic algorithm with 20-weight linear policy per creature
+
+Train G0001 | best=156.50 | avg= 71.25 | best food=27 | level=1 | steps=120 | status=warming-up
+Curriculum update at G0021: level 1 -> 2 (harder).
+Curriculum update at G0061: level 2 -> 3 (harder).
+Train G0100 | best=235.95 | avg=101.23 | best food=56 | level=3 | steps=134 | status=stalled
+Saved checkpoint G0200 | best=241.67 | avg=104.83 | level=3 | progress=200.53
+Train G0200 | best=241.67 | avg=104.83 | best food=52 | level=3 | steps=148 | status=stalled
+Train G0300 | best=272.79 | avg=114.03 | best food=62 | level=3 | steps=163 | status=stalled
+Saved checkpoint G0400 | best=299.51 | avg=120.26 | level=3 | progress=239.17
+Train G0400 | best=299.51 | avg=120.26 | best food=70 | level=3 | steps=177 | status=stalled
+Train G0500 | best=326.22 | avg=128.70 | best food=78 | level=3 | steps=191 | status=improving
+Train G0600 | best=369.60 | avg=135.48 | best food=95 | level=3 | steps=206 | status=improving
+Train G0700 | best=366.56 | avg=135.10 | best food=86 | level=3 | steps=220 | status=improving
+Saved checkpoint G0800 | best=377.06 | avg=138.30 | level=3 | progress=287.97
+Train G0800 | best=377.06 | avg=138.30 | best food=92 | level=3 | steps=220 | status=stalled
+Saved snapshot file: models/sweep_gentle_progressive.json (3 checkpoints)

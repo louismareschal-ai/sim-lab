@@ -1,0 +1,31 @@
+================================================================
+Snapshot Training | Session: Neon Beacon | Seed: 42
+Objective: adapt, survive, and dominate the evolving world.
+================================================================
+=== Snapshot Training ===
+Target generations: 800
+Checkpoints: [200, 400, 800]
+Food coverage init: 70.0%
+Spawn mode: random
+Food respawn: mode=random, interval=12 steps, batch=20%, cycle=30 steps
+Interference: mode=off, blocker_ttl=4, blocker_cost=0.25
+Steps ramp: 120 -> 280 over 700 generations
+Stall window: 300 gens (stop if best fitness flat for this long)
+Log interval: every 100 generations
+AI technique: genetic algorithm with 20-weight linear policy per creature
+
+Train G0001 | best=162.50 | avg= 78.18 | best food=29 | level=1 | steps=120 | status=warming-up
+Curriculum update at G0021: level 1 -> 2 (harder).
+Curriculum update at G0081: level 2 -> 3 (harder).
+Train G0100 | best=254.63 | avg=120.73 | best food=62 | level=3 | steps=143 | status=improving
+Saved checkpoint G0200 | best=286.02 | avg=128.39 | level=3 | progress=240.59
+Train G0200 | best=286.02 | avg=128.39 | best food=68 | level=3 | steps=166 | status=stalled
+Train G0300 | best=325.25 | avg=145.95 | best food=79 | level=3 | steps=188 | status=stalled
+Saved checkpoint G0400 | best=353.14 | avg=156.56 | level=3 | progress=295.76
+Train G0400 | best=353.14 | avg=156.56 | best food=83 | level=3 | steps=211 | status=stalled
+Train G0500 | best=400.28 | avg=175.00 | best food=98 | level=3 | steps=234 | status=stalled
+Train G0600 | best=440.42 | avg=173.13 | best food=109 | level=3 | steps=257 | status=stalled
+Train G0700 | best=461.31 | avg=190.86 | best food=109 | level=3 | steps=280 | status=stalled
+Saved checkpoint G0800 | best=478.81 | avg=215.35 | level=3 | progress=404.37
+Train G0800 | best=478.81 | avg=215.35 | best food=119 | level=3 | steps=280 | status=improving
+Saved snapshot file: models/sweep_tuned_staged.json (3 checkpoints)
