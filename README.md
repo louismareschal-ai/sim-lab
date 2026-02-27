@@ -17,6 +17,36 @@ From this folder:
 python3 -m pip install -r requirements.txt
 ```
 
+## Run locally (web service)
+
+Start the API wrapper:
+
+```bash
+uvicorn server:app --host 0.0.0.0 --port 8000
+```
+
+Endpoints:
+
+- `GET /health`
+- `GET /`
+- `GET /simulate?task=center&seed=42`
+
+## Run with Docker
+
+Build:
+
+```bash
+docker build -t sim-lab-web .
+```
+
+Run:
+
+```bash
+docker run --rm -p 8000:8000 -e PORT=8000 sim-lab-web
+```
+
+Then open `http://localhost:8000/health`.
+
 ## Run
 
 From this folder:
